@@ -1,0 +1,14 @@
+﻿<Project>
+  <Import Project="dependencies.props" />
+  <PropertyGroup>
+    <Version>0</Version>
+    <FileVersion>$(Version).0.1</FileVersion>
+    <Company>René Pacios</Company>
+    <Copyright>Copyright © $(Company) - $([System.DateTime]::Now.Year)</Copyright>
+  </PropertyGroup>
+ 
+  <PropertyGroup>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <WarningsAsErrors></WarningsAsErrors>
+  </PropertyGroup>
+</Project>

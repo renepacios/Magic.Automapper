@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A47BA4B0-E37E-4870-B334-820D86FD593C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{9BA3165A-0136-4D67-8D96-7987B5ECBF44}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{88917990-5183-4F32-8114-4F9AE5F0512D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		dependencies.props = dependencies.props
+		Directory.Build.props = Directory.Build.props
+		global.json = global.json
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magic.AutoMapper", "src\Magic.AutoMapper\Magic.AutoMapper.csproj", "{16A07591-D425-47AB-95C4-B808FBC13567}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magic.AutoMapper.Extensions.Microsoft.DependencyInjection", "src\Magic.AutoMapper.Extensions.Microsoft.DependencyInjection\Magic.AutoMapper.Extensions.Microsoft.DependencyInjection.csproj", "{A691AC1A-6AC1-4D8A-96C5-6DEBE266C2CD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "testApps", "testApps", "{CEBDBAF4-A92D-4C66-BF2D-B13DCBEC7867}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppSample", "samples\ConsoleAppSample\ConsoleAppSample.csproj", "{3E24F2F5-4EE6-43A1-BF5A-1E15B3EE8822}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16A07591-D425-47AB-95C4-B808FBC13567}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16A07591-D425-47AB-95C4-B808FBC13567}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16A07591-D425-47AB-95C4-B808FBC13567}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16A07591-D425-47AB-95C4-B808FBC13567}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A691AC1A-6AC1-4D8A-96C5-6DEBE266C2CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A691AC1A-6AC1-4D8A-96C5-6DEBE266C2CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A691AC1A-6AC1-4D8A-96C5-6DEBE266C2CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A691AC1A-6AC1-4D8A-96C5-6DEBE266C2CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E24F2F5-4EE6-43A1-BF5A-1E15B3EE8822}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E24F2F5-4EE6-43A1-BF5A-1E15B3EE8822}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E24F2F5-4EE6-43A1-BF5A-1E15B3EE8822}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E24F2F5-4EE6-43A1-BF5A-1E15B3EE8822}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{16A07591-D425-47AB-95C4-B808FBC13567} = {A47BA4B0-E37E-4870-B334-820D86FD593C}
+		{A691AC1A-6AC1-4D8A-96C5-6DEBE266C2CD} = {A47BA4B0-E37E-4870-B334-820D86FD593C}
+		{3E24F2F5-4EE6-43A1-BF5A-1E15B3EE8822} = {9BA3165A-0136-4D67-8D96-7987B5ECBF44}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7207CAAC-7931-4367-A8F6-2F6C73975BB1}
+	EndGlobalSection
+EndGlobal

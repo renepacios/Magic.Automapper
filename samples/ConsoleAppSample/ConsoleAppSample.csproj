@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>$(NetCoreTargetVersion)</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="$(Automapper)" />
+        <PackageReference Include="Rene.Utils.Core" Version="$(ReneUtils)" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\src\Magic.AutoMapper\Magic.AutoMapper.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>$(NetStandardTargetVersion)</TargetFramework>
+      <LangVersion>$(LangVersion)</LangVersion>
+  </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="$(Automapper)" />
+    </ItemGroup>
+
+</Project>
