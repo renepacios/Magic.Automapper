@@ -19,7 +19,7 @@ jobs:
   build:
     env:
         BUILD_CONFIG: Release
-        PROJECT_NAME: Rene.Utils.Core
+        PROJECT_NAME: Magic.AutoMapper
 
 
     name: Build Start
@@ -27,7 +27,7 @@ jobs:
 
     strategy:
       matrix:
-        dotnet: [ '3.1.x' ]
+        dotnet: [ '3.1.x','5.0.101' ]
 
     steps:
     - name: Set env. aux vars

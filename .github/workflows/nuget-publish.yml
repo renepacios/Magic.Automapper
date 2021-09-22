@@ -14,7 +14,7 @@ jobs:
   build:
     env:
         BUILD_CONFIG: Release
-        PROJECT_NAME: Rene.Utils.Core
+        PROJECT_NAME: Magic.AutoMapper
 
     name: Build Start Enviroment
     runs-on: ubuntu-latest
