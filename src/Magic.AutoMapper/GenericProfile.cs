@@ -6,9 +6,21 @@
     using System.Reflection;
     using global::AutoMapper;
 
+    public static class MagicAutoMapperHelpers
+    {
+        public static void AddMagicAutoMapperProfile(this IMapperConfigurationExpression cfg) =>
+            cfg.AddProfile(new GenericProfile()); 
+        //typeof(Magic.AutoMapper.GenericProfile))(typeof(Magic.AutoMapper.GenericProfile));
+
+        public static void AddMagicAutoMapperProfile(this IMapperConfigurationExpression cfg, IEnumerable<Assembly> assemblies)
+        {
+            cfg.AddProfile(new GenericProfile(assemblies));
+        }
+    }
+
     public class GenericProfile : Profile
     {
-        public GenericProfile()
+        internal GenericProfile()
         {
             ApplyMappingsFromAssembly(Assembly.GetEntryAssembly());
 

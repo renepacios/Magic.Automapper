@@ -7,6 +7,7 @@ namespace ConsoleAppSample
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Linq;
+    using Magic.AutoMapper;
 
     class Program
     {
@@ -14,7 +15,11 @@ namespace ConsoleAppSample
         {
             Console.WriteLine("Magic AutoMapper Application Test");
 
-            var config = new MapperConfiguration(cfg => cfg.AddProfile(typeof(Magic.AutoMapper.GenericProfile)));
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddMagicAutoMapperProfile();
+               // cfg.AddProfile(typeof(Magic.AutoMapper.GenericProfile));
+            });
             var mapper = new Mapper(config);
 
             var entity = new Entity()
