@@ -18,13 +18,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magic.AutoMapper", "src\Magic.AutoMapper\Magic.AutoMapper.csproj", "{16A07591-D425-47AB-95C4-B808FBC13567}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Magic.AutoMapper", "src\Magic.AutoMapper\Magic.AutoMapper.csproj", "{16A07591-D425-47AB-95C4-B808FBC13567}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Magic.AutoMapper.Extensions.Microsoft.DependencyInjection", "src\Magic.AutoMapper.Extensions.Microsoft.DependencyInjection\Magic.AutoMapper.Extensions.Microsoft.DependencyInjection.csproj", "{A691AC1A-6AC1-4D8A-96C5-6DEBE266C2CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Magic.AutoMapper.Extensions.Microsoft.DependencyInjection", "src\Magic.AutoMapper.Extensions.Microsoft.DependencyInjection\Magic.AutoMapper.Extensions.Microsoft.DependencyInjection.csproj", "{A691AC1A-6AC1-4D8A-96C5-6DEBE266C2CD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "testApps", "testApps", "{CEBDBAF4-A92D-4C66-BF2D-B13DCBEC7867}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CEBDBAF4-A92D-4C66-BF2D-B13DCBEC7867}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppSample", "samples\ConsoleAppSample\ConsoleAppSample.csproj", "{3E24F2F5-4EE6-43A1-BF5A-1E15B3EE8822}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppSample", "samples\ConsoleAppSample\ConsoleAppSample.csproj", "{3E24F2F5-4EE6-43A1-BF5A-1E15B3EE8822}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
