@@ -7,6 +7,20 @@ When we work with AutoMapper in a project normally we have an flat and basic pro
 
 Magic AutoMapper simplify the way to configure this maps without need create a especific profiles. Maps will be defined into Dto class declaration.
 
+You only need do something like that to **Magic Automapper** work:
+```csharp 
+using Magic.AutoMapper;
+    
+public class EntityDto : IMapFrom<Entity>
+{
+    public int Id { get; set; }
+    public string DataName { get; set; }
+}
+
+```
+
+
+
 This library is based in an original idea of Jason Taylor, exposed in NDC Sydney 2019 conference.
 
 ## Getting Started
