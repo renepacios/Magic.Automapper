@@ -28,7 +28,7 @@ jobs:
 
     strategy:
       matrix:
-        dotnet-version: ['3.0', '3.1.x', '5.0.x' ]
+        dotnet-version: ['5.0.x' ]
 
     steps:
     - uses: actions/checkout@v2
@@ -49,14 +49,7 @@ jobs:
         echo "DI_TEST_PROJECT_PATH=tests/${PROJECT_NAME}.${DI_PROJECT_NAME_POSTFIX}.UnitTest/${PROJECT_NAME}.UnitTest.csproj" >> $GITHUB_ENV
         echo "PROJECT_PATH=src/${PROJECT_NAME}/${PROJECT_NAME}.csproj" >> $GITHUB_ENV
         echo "DI_PROJECT_PATH=src/${PROJECT_NAME}/${PROJECT_NAME}.${DI_PROJECT_NAME_POSTFIX}.csproj" >> $GITHUB_ENV
- 
 
-    - uses: actions/checkout@v2
-
-    - name: Setup .NET Core 5.0.101 # ${{ matrix.dotnet }}
-      uses: actions/setup-dotnet@v1.7.2      
-      with:
-        dotnet-version: 5.0.101 # ${{ matrix.dotnet }}
 
     - name: Install dependencies                
       run: dotnet restore $SOLUTION_NAME
