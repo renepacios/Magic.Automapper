@@ -1,11 +1,14 @@
-name: Upload Version to NuGet
+name: CI .NET Core
 
 
 on:
   push:
-    tags: 
-      - v*
-    paths-ignore:
+      branches:
+        - develop  
+        - release/*
+        - feature/*
+        - fix/*
+      paths-ignore:
       - '**/README.md'
       - '**/LICENSE'
   workflow_dispatch: #to test
@@ -34,12 +37,10 @@ jobs:
       with:
          dotnet-version: ${{ matrix.dotnet-version }}
     
-
     - name: Trace Environment
       run: |
         echo "Log level: ${{ github.event.inputs.logLevel }}"
         echo "Tags: ${{ github.event.inputs.tags }}" 
-       
         
     - name: Set env. aux vars
       run: |
@@ -47,31 +48,25 @@ jobs:
         echo "TEST_PROJECT_PATH=tests/${PROJECT_NAME}.UnitTest/${PROJECT_NAME}.UnitTest.csproj" >> $GITHUB_ENV
         echo "DI_TEST_PROJECT_PATH=tests/${PROJECT_NAME}.${DI_PROJECT_NAME_POSTFIX}.UnitTest/${PROJECT_NAME}.${DI_PROJECT_NAME_POSTFIX}.UnitTest.csproj" >> $GITHUB_ENV
         echo "PROJECT_PATH=src/${PROJECT_NAME}/${PROJECT_NAME}.csproj" >> $GITHUB_ENV
-        echo "DI_PROJECT_PATH=src/${PROJECT_NAME}/${PROJECT_NAME}.${DI_PROJECT_NAME_POSTFIX}.csproj" >> $GITHUB_ENV
+        echo "DI_PROJECT_PATH=src/${PROJECT_NAME}.${DI_PROJECT_NAME_POSTFIX}/${PROJECT_NAME}.${DI_PROJECT_NAME_POSTFIX}.csproj" >> $GITHUB_ENV
 
 
     - name: Install dependencies                
       run: dotnet restore $SOLUTION_NAME
-       
-    - name: Build - [$PROJECT_PATH]
-      run:  dotnet build $PROJECT_PATH --configuration $BUILD_CONFIG --no-restore 
-    
-    - name: Build - [$DI_PROJECT_PATH]
-      run:  dotnet build $DI_PROJECT_PATH --configuration $BUILD_CONFIG --no-restore 
 
     - name: Test - [UnitTest $TEST_PROJECT_PATH]
       run:  dotnet test $TEST_PROJECT_PATH --no-restore --verbosity normal
 
     - name: Test - [UnitTest $DI_TEST_PROJECT_PATH]
       run:  dotnet test $DI_TEST_PROJECT_PATH --no-restore --verbosity normal
-   
+    
+    - name: Build - [$PROJECT_PATH]
+      run:  dotnet build $PROJECT_PATH --configuration $BUILD_CONFIG --no-restore 
+    
+    - name: Build - [$DI_PROJECT_PATH]
+      run:  dotnet build $DI_PROJECT_PATH --configuration $BUILD_CONFIG --no-restore 
 
     - name: dotnet pack [$PROJECT_NAME] & [$DI_PROJECT_PATH]
       run: |
         dotnet pack $PROJECT_PATH -c $BUILD_CONFIG --include-symbols -p:SymbolPackageFormat=snupkg -o ./artifacts
         dotnet pack $DI_PROJECT_PATH -c $BUILD_CONFIG --include-symbols -p:SymbolPackageFormat=snupkg -o ./artifacts
-
-
-    - name: Publish NuGet 
-      run: dotnet nuget push ./artifacts/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicateplicate
-
