@@ -28,9 +28,15 @@ jobs:
 
     strategy:
       matrix:
-        dotnet: ['5.0.x'] #['3.1.x','5.0.101' ] #<-- conflict with global.json
+        dotnet-version: ['3.0', '3.1.x', '5.0.x' ]
 
     steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core SDK ${{ matrix.dotnet-version }}
+      uses: actions/setup-dotnet@v1.7.2
+      with:
+         dotnet-version: ${{ matrix.dotnet-version }}
+    
     - name: Trace Environment
       run: |
         echo "Log level: ${{ github.event.inputs.logLevel }}"
