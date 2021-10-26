@@ -34,7 +34,7 @@ jobs:
 
     strategy:
       matrix:
-        dotnet: [ '3.1.x'] #,'5.0.101' ] #<-- conflict with global.json
+        dotnet: ['5.0.x'] #['3.1.x','5.0.101' ] #<-- conflict with global.json
 
     steps:
     - name: Trace Environment
