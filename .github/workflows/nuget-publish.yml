@@ -1,4 +1,4 @@
-name: CI .NET Core
+name: Upload to NuGet
 
 
 on:
@@ -70,3 +70,6 @@ jobs:
       run: |
         dotnet pack $PROJECT_PATH -c $BUILD_CONFIG --include-symbols -p:SymbolPackageFormat=snupkg -o ./artifacts
         dotnet pack $DI_PROJECT_PATH -c $BUILD_CONFIG --include-symbols -p:SymbolPackageFormat=snupkg -o ./artifacts
+
+    - name: Publish NuGet 
+      run: dotnet nuget push ./artifacts/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json --skip-duplicate
