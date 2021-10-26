@@ -47,7 +47,7 @@ jobs:
         echo "TEST_PROJECT_PATH=tests/${PROJECT_NAME}.UnitTest/${PROJECT_NAME}.UnitTest.csproj" >> $GITHUB_ENV
         echo "DI_TEST_PROJECT_PATH=tests/${PROJECT_NAME}.${DI_PROJECT_NAME_POSTFIX}.UnitTest/${PROJECT_NAME}.${DI_PROJECT_NAME_POSTFIX}.UnitTest.csproj" >> $GITHUB_ENV
         echo "PROJECT_PATH=src/${PROJECT_NAME}/${PROJECT_NAME}.csproj" >> $GITHUB_ENV
-        echo "DI_PROJECT_PATH=src/${PROJECT_NAME}.${DI_PROJECT_NAME_POSTFIX}/${PROJECT_NAME}.${DI_PROJECT_NAME_POSTFIX}.csproj" >> $GITHUB_ENV
+        echo "DI_PROJECT_PATH=src/${PROJECT_NAME}/${PROJECT_NAME}.${DI_PROJECT_NAME_POSTFIX}.csproj" >> $GITHUB_ENV
 
 
     - name: Install dependencies                
