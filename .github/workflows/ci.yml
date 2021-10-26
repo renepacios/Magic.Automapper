@@ -54,11 +54,12 @@ jobs:
     - name: Install dependencies                
       run: dotnet restore $SOLUTION_NAME
 
-    - name: Test - [UnitTest]
-      run: |
-        dotnet test $TEST_PROJECT_PATH --no-restore --verbosity normal
-        dotnet test $DI_TEST_PROJECT_PATH --no-restore --verbosity normal
+    - name: Test - [UnitTest $TEST_PROJECT_PATH]
+      run:  dotnet test $TEST_PROJECT_PATH --no-restore --verbosity normal
 
+    - name: Test - [UnitTest $DI_TEST_PROJECT_PATH]
+      run:  dotnet test $DI_TEST_PROJECT_PATH --no-restore --verbosity normal
+    
     - name: Build - [$PROJECT_PATH]
       run:  dotnet build $PROJECT_PATH --configuration $BUILD_CONFIG --no-restore 
     
