@@ -24,9 +24,9 @@
         {
             ApplyMappingsFromAssembly(Assembly.GetEntryAssembly());
 
-            Console.WriteLine(Assembly.GetCallingAssembly().ToString());
-            Console.WriteLine(Assembly.GetEntryAssembly()?.ToString());
-            Console.WriteLine(Assembly.GetExecutingAssembly().ToString());
+            //Console.WriteLine(Assembly.GetCallingAssembly().ToString());
+            //Console.WriteLine(Assembly.GetEntryAssembly()?.ToString());
+            //Console.WriteLine(Assembly.GetExecutingAssembly().ToString());
 
         }
 

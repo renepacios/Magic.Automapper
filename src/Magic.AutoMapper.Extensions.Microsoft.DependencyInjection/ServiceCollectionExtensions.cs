@@ -5,8 +5,8 @@ namespace Microsoft.Extensions.DependencyInjection
    
     public static class ServiceCollectionExtensions
     {
-        public static IMapperUtilsBuilder AddMapperUtils(this IServiceCollection services) 
-            => new MapperUtilsBuilder(services);
+        public static IMagicMapperBuilder AddMagicAutoMapper(this IServiceCollection services) 
+            => new MagicMapperBuilder(services);
 
     }
 }

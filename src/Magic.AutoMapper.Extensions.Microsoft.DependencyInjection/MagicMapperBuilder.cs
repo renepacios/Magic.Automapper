@@ -9,16 +9,16 @@ namespace Microsoft.Extensions.DependencyInjection
     using System.Reflection;
 
 
-    internal class MapperUtilsBuilder : IMapperUtilsBuilder
+    internal class MagicMapperBuilder : IMagicMapperBuilder
     {
         private readonly IServiceCollection _services;
 
-        public MapperUtilsBuilder(IServiceCollection services)
+        public MagicMapperBuilder(IServiceCollection services)
         {
             this._services = services;
         }
 
-        public IServiceCollection AddAutomapper(params Assembly[] assemblies)
+        public IServiceCollection AddAutoMapper(params Assembly[] assemblies)
             =>
                 _services.AddAutoMapper((_, cfg) =>
                 {
@@ -27,7 +27,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 }, assemblies);
 
 
-        public IServiceCollection AddAutomapper(Action<IMapperConfigurationExpression> configAction, params Assembly[] assemblies)
+        public IServiceCollection AddAutoMapper(Action<IMapperConfigurationExpression> configAction, params Assembly[] assemblies)
             => _services.AddAutoMapper((_, cfg) =>
             {
                 configAction?.Invoke(cfg);
@@ -36,7 +36,7 @@ namespace Microsoft.Extensions.DependencyInjection
             }, assemblies);
 
 
-        public IServiceCollection AddAutomapper(Action<IServiceProvider, IMapperConfigurationExpression> configAction, params Assembly[] assemblies)
+        public IServiceCollection AddAutoMapper(Action<IServiceProvider, IMapperConfigurationExpression> configAction, params Assembly[] assemblies)
             => _services.AddAutoMapper((sp, cfg) =>
             {
                 configAction?.Invoke(sp, cfg);
@@ -45,7 +45,7 @@ namespace Microsoft.Extensions.DependencyInjection
             }, assemblies);
 
 
-        public IServiceCollection AddAutomapper(Action<IMapperConfigurationExpression> configAction, IEnumerable<Assembly> assemblies, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
+        public IServiceCollection AddAutoMapper(Action<IMapperConfigurationExpression> configAction, IEnumerable<Assembly> assemblies, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
         {
             IEnumerable<Assembly> assembliesList = assemblies.ToList();
             return _services.AddAutoMapper((_, cfg) =>
@@ -57,7 +57,7 @@ namespace Microsoft.Extensions.DependencyInjection
         }
 
 
-        public IServiceCollection AddAutomapper(Action<IServiceProvider, IMapperConfigurationExpression> configAction, IEnumerable<Assembly> assemblies, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
+        public IServiceCollection AddAutoMapper(Action<IServiceProvider, IMapperConfigurationExpression> configAction, IEnumerable<Assembly> assemblies, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
         {
             IEnumerable<Assembly> assembliesList = assemblies.ToList();
 
@@ -70,7 +70,7 @@ namespace Microsoft.Extensions.DependencyInjection
         }
 
 
-        public IServiceCollection AddAutomapper(IEnumerable<Assembly> assemblies, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
+        public IServiceCollection AddAutoMapper(IEnumerable<Assembly> assemblies, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
         {
             IEnumerable<Assembly> assembliesList = assemblies.ToList();
             return _services
@@ -84,7 +84,7 @@ namespace Microsoft.Extensions.DependencyInjection
         }
 
 
-        public IServiceCollection AddAutomapper(params Type[] profileAssemblyMarkerTypes)
+        public IServiceCollection AddAutoMapper(params Type[] profileAssemblyMarkerTypes)
         {
             var assembliesList = profileAssemblyMarkerTypes.Select(t => t.GetTypeInfo().Assembly).ToList();
             return _services.AddAutoMapper(
@@ -94,7 +94,7 @@ namespace Microsoft.Extensions.DependencyInjection
         }
 
 
-        public IServiceCollection AddAutomapper(Action<IMapperConfigurationExpression> configAction, params Type[] profileAssemblyMarkerTypes)
+        public IServiceCollection AddAutoMapper(Action<IMapperConfigurationExpression> configAction, params Type[] profileAssemblyMarkerTypes)
         {
             var assembliesList = profileAssemblyMarkerTypes.Select(t => t.GetTypeInfo().Assembly).ToList();
             return _services.AddAutoMapper((_, cfg) =>
@@ -107,7 +107,7 @@ namespace Microsoft.Extensions.DependencyInjection
         }
 
 
-        public IServiceCollection AddAutomapper(Action<IServiceProvider, IMapperConfigurationExpression> configAction, params Type[] profileAssemblyMarkerTypes)
+        public IServiceCollection AddAutoMapper(Action<IServiceProvider, IMapperConfigurationExpression> configAction, params Type[] profileAssemblyMarkerTypes)
         {
             var assembliesList = profileAssemblyMarkerTypes.Select(t => t.GetTypeInfo().Assembly).ToList();
 
@@ -121,7 +121,7 @@ namespace Microsoft.Extensions.DependencyInjection
         }
 
 
-        public IServiceCollection AddAutomapper(Action<IMapperConfigurationExpression> configAction,
+        public IServiceCollection AddAutoMapper(Action<IMapperConfigurationExpression> configAction,
             IEnumerable<Type> profileAssemblyMarkerTypes, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
         {
             var assembliesList = profileAssemblyMarkerTypes.Select(t => t.GetTypeInfo().Assembly).ToList();
@@ -136,7 +136,7 @@ namespace Microsoft.Extensions.DependencyInjection
         }
 
 
-        public IServiceCollection AddAutomapper(Action<IServiceProvider, IMapperConfigurationExpression> configAction,
+        public IServiceCollection AddAutoMapper(Action<IServiceProvider, IMapperConfigurationExpression> configAction,
             IEnumerable<Type> profileAssemblyMarkerTypes, ServiceLifetime serviceLifetime = ServiceLifetime.Transient)
         {
             var assembliesList = profileAssemblyMarkerTypes.Select(t => t.GetTypeInfo().Assembly).ToList();
