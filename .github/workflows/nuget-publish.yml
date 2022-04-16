@@ -3,12 +3,17 @@ name: Upload to NuGet
 
 on:
   push:
-      branches:
-        - develop  
-        - release/*
-        - feature/*
-        - fix/*
-      paths-ignore:
+    tags: 
+      - v*
+    branches: 
+      - main
+    paths-ignore:
+      - '**/README.md'
+      - '**/LICENSE'    
+  pull_request:
+    branches: 
+      - main    
+    paths-ignore:
       - '**/README.md'
       - '**/LICENSE'
   workflow_dispatch: #to test

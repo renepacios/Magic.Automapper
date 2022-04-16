@@ -22,13 +22,15 @@ jobs:
         PROJECT_NAME: Magic.AutoMapper
         DI_PROJECT_NAME_POSTFIX: Extensions.Microsoft.DependencyInjection
 
-
-    name: Build Start
-    runs-on: ubuntu-latest
-
     strategy:
       matrix:
         dotnet-version: ['5.0.x' ]
+        agent: ['windows-2016','ubuntu-latest','macos-latest']
+
+    
+    name: Build Start with ${{ matrix.dotnet-version }} on ${{matrix.agent}}    
+
+    runs-on: ${{matrix.agent}}
 
     steps:
     - uses: actions/checkout@v2
