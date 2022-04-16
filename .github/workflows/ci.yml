@@ -4,6 +4,7 @@ name: CI .NET Core
 on:
   push:
       branches:
+        - main
         - develop  
         - release/*
         - feature/*
