@@ -3,7 +3,11 @@ Helper to automatic configure mappings with Automapper
 
 ## What is Magic AutoMapper?
 
-When we work with AutoMapper in a project normally we have an flat and basic profiles to configure maps like ```csharp Mapper.Map<entity,entityDto>();``` where all properties of DTO type are equals (type and name) than source entity.
+When we work with AutoMapper in a project normally we have an flat and basic profiles to configure maps like 
+```csharp 
+Mapper.Map<entity,entityDto>();
+```
+where all properties of DTO type are equals (type and name) than source entity.
 
 Magic AutoMapper simplify the way to configure this maps without need create a especific profiles. Maps will be defined into Dto class declaration.
 
