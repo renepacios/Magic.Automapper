@@ -4,6 +4,7 @@ name: CI .NET Core
 on:
   push:
       branches:
+        - main
         - develop  
         - release/*
         - feature/*
@@ -24,8 +25,8 @@ jobs:
 
     strategy:
       matrix:
-        dotnet-version: ['5.0.x' ]
-        agent: ['windows-latest','ubuntu-latest','macos-latest']
+        dotnet-version: ['8.0.x']
+        agent: ['windows-latest','ubuntu-latest'] #,'macos-latest'
 
     
     name: Build Start with ${{ matrix.dotnet-version }} on ${{matrix.agent}}    
@@ -63,12 +64,12 @@ jobs:
       run:  dotnet test $DI_TEST_PROJECT_PATH --no-restore --verbosity normal
     
     - name: Build - [$PROJECT_PATH]
-      run:  dotnet build $PROJECT_PATH --configuration $BUILD_CONFIG --no-restore 
+      run:  dotnet build $PROJECT_PATH --configuration ${{ env.BUILD_CONFIG }} --no-restore 
     
     - name: Build - [$DI_PROJECT_PATH]
-      run:  dotnet build $DI_PROJECT_PATH --configuration $BUILD_CONFIG --no-restore 
+      run:  dotnet build $DI_PROJECT_PATH --configuration ${{ env.BUILD_CONFIG }} --no-restore 
 
     - name: dotnet pack [$PROJECT_NAME] & [$DI_PROJECT_PATH]
       run: |
-        dotnet pack $PROJECT_PATH -c $BUILD_CONFIG --include-symbols -p:SymbolPackageFormat=snupkg -o ./artifacts
-        dotnet pack $DI_PROJECT_PATH -c $BUILD_CONFIG --include-symbols -p:SymbolPackageFormat=snupkg -o ./artifacts
+        dotnet pack $PROJECT_PATH -c ${{ env.BUILD_CONFIG }} --include-symbols -p:SymbolPackageFormat=snupkg -o ./artifacts
+        dotnet pack $DI_PROJECT_PATH -c ${{ env.BUILD_CONFIG }} --include-symbols -p:SymbolPackageFormat=snupkg -o ./artifacts
