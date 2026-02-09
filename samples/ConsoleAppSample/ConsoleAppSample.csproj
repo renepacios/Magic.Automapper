@@ -7,7 +7,7 @@
 
     <ItemGroup>
         <PackageReference Include="AutoMapper" Version="$(Automapper)" />
-        <PackageReference Include="Rene.Utils.Core" Version="1.0.0" />
+        <PackageReference Include="Rene.Utils.Core" Version="$(ReneUtils)" />
     </ItemGroup>
 
     <ItemGroup>

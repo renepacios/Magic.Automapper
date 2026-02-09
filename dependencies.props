@@ -1,10 +1,10 @@
 <Project>
     <PropertyGroup Label="SDK Versions">
-        <NetStandardTargetVersion>netstandard2.1</NetStandardTargetVersion>
+        <NetStandardTargetVersion>netstandard2.2</NetStandardTargetVersion>
         <!--<NetCoreTargetVersion>netcoreapp3.1</NetCoreTargetVersion>-->
-        <NetCoreTargetVersion>net6.0</NetCoreTargetVersion>
+        <NetCoreTargetVersion>net10.0</NetCoreTargetVersion>
 
-        <LangVersion>9.0</LangVersion>
+        <LangVersion>Latest</LangVersion>
 
     </PropertyGroup>
 
@@ -16,8 +16,8 @@
     <PropertyGroup Label="Package Versions">
         <MicrosoftAspNetCoreCommon>3.1.9</MicrosoftAspNetCoreCommon>
       
-        <Automapper>13.0.1</Automapper>
-        <ReneUtils>0.4.0</ReneUtils>
+        <Automapper>14.0.0</Automapper>
+        <ReneUtils>1.9.0</ReneUtils>
         <FluentValidation>8.6.2</FluentValidation>
     </PropertyGroup>
 
