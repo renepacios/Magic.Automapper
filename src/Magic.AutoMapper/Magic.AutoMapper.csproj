@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>$(NetStandardTargetVersion)</TargetFramework>
+    <TargetFramework>$(NetCoreTargetVersion)</TargetFramework>
       <LangVersion>$(LangVersion)</LangVersion>
       <Version>$(FileVersion).0</Version>
   </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="AutoMapper" Version="12.0.1" />
+        <PackageReference Include="AutoMapper" Version="$(Automapper)" />
     </ItemGroup>
 
 </Project>
